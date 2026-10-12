@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BloodBond Bangladesh – Donate Blood, Save Lives | রক্তদান করুন, জীবন বাঁচান</title>
+<meta name="description" content="BloodBond Bangladesh connects voluntary blood donors with patients who urgently need blood across Bangladesh.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--red:#d6203a;--red-d:#a9142b;--red-l:#fdecef;--ink:#1d1f24;--mute:#5f6670;--grey:#f4f5f7;--line:#e4e6ea;--white:#fff;--ok:#127a43;--r:14px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:"Hind Siliguri",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--white);line-height:1.6;font-size:16px}
+a{color:inherit;text-decoration:none}
+img,svg{max-width:100%}
+.wrap{width:min(1120px,92%);margin-inline:auto}
+section{padding:72px 0}
+.alt{background:var(--grey)}
+h1,h2,h3{line-height:1.2;letter-spacing:-.01em}
+h2{font-size:clamp(1.6rem,3.2vw,2.2rem);margin-bottom:10px}
+.lead{color:var(--mute);max-width:60ch;margin-bottom:34px}
+:focus-visible{outline:3px solid #1a5fd0;outline-offset:2px}
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:#fff;padding:10px 16px;z-index:100}
+.skip:focus{left:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 24px;border-radius:999px;font:600 1rem inherit;font-family:inherit;border:2px solid var(--red);cursor:pointer;transition:.2s;min-height:48px}
+.btn-red{background:var(--red);color:#fff}.btn-red:hover{background:var(--red-d);border-color:var(--red-d)}
+.btn-out{background:#fff;color:var(--red)}.btn-out:hover{background:var(--red-l)}
+.btn[disabled]{opacity:.7;cursor:wait}
+/* nav */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.2rem}
+.logo svg{width:30px;height:30px}.logo span b{color:var(--red)}
+.menu{display:flex;gap:22px;align-items:center;list-style:none}
+.menu a{font-weight:500;color:var(--mute)}.menu a:hover{color:var(--red)}
+.burger{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer}
+.burger span{display:block;width:24px;height:2px;background:var(--ink);margin:5px auto;transition:.2s}
+/* hero */
+.hero{padding:56px 0 72px;background:linear-gradient(180deg,#fff 0,var(--red-l) 100%)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(2.2rem,5.4vw,3.8rem);margin-bottom:16px}
+.hero h1 em{font-style:normal;color:var(--red)}
+.hero p{color:var(--mute);font-size:1.1rem;max-width:52ch;margin-bottom:26px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.tag{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 14px;font-size:.88rem;color:var(--mute);margin-bottom:18px}
+.picker{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 18px 40px -22px rgba(214,32,58,.45)}
+.picker h3{font-size:1.05rem;margin-bottom:4px}.picker p{font-size:.92rem;margin-bottom:16px}
+.groups{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.bg{aspect-ratio:1;border-radius:50% 50% 50% 8px;transform:rotate(-45deg);background:var(--red-l);border:2px solid transparent;cursor:pointer;display:grid;place-items:center;transition:.2s}
+.bg b{transform:rotate(45deg);font-size:1.15rem;color:var(--red-d)}
+.bg:hover,.bg[aria-pressed=true]{background:var(--red);border-color:var(--red-d)}
+.bg:hover b,.bg[aria-pressed=true] b{color:#fff}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:-36px;position:relative}
+.stat{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px;text-align:center}
+.stat b{display:block;font-size:2rem;color:var(--red)}.stat small{color:var(--mute)}
+.note{background:#fff8e5;border:1px solid #f1d98a;color:#6b5200;border-radius:10px;padding:10px 14px;font-size:.9rem;margin:14px 0}
+/* cards */
+.grid{display:grid;gap:18px}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px}
+.card .ic{width:46px;height:46px;border-radius:12px;background:var(--red-l);display:grid;place-items:center;margin-bottom:14px;font-size:1.4rem}
+.card h3{font-size:1.1rem;margin-bottom:6px}.card p{color:var(--mute);font-size:.96rem}
+.compat{width:100%;border-collapse:collapse;background:#fff;border-radius:var(--r);overflow:hidden;font-size:.95rem}
+.compat th,.compat td{padding:10px 14px;border-bottom:1px solid var(--line);text-align:left}
+.compat th{background:var(--red);color:#fff}
+.scroll{overflow-x:auto;border-radius:var(--r);border:1px solid var(--line)}
+.req{display:flex;gap:16px;align-items:center}
+.req .big{flex:none;width:56px;height:56px;border-radius:50% 50% 50% 8px;background:var(--red);color:#fff;display:grid;place-items:center;font-weight:700;font-size:1.2rem}
+.req small{color:var(--mute);display:block}
+.urgent{display:inline-block;background:var(--red);color:#fff;font-size:.78rem;padding:2px 10px;border-radius:999px;margin-bottom:6px}
+.req .btn{margin-top:10px;padding:8px 16px;min-height:40px;font-size:.92rem}
+/* forms */
+.formcard{background:#fff;border:1px solid var(--line);border-radius:22px;padding:clamp(20px,4vw,36px)}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.full{grid-column:1/-1}
+label{display:block;font-weight:600;font-size:.94rem;margin-bottom:5px}
+label i{color:var(--red);font-style:normal}
+input[type=text],input[type=tel],input[type=date],select,textarea{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;font:inherit;background:#fff;min-height:48px}
+input:focus,select:focus,textarea:focus{border-color:var(--red);outline:none;box-shadow:0 0 0 3px var(--red-l)}
+.invalid{border-color:var(--red)!important}
+.err{color:var(--red-d);font-size:.86rem;min-height:1.2em;display:block}
+.chk{display:flex;gap:10px;align-items:flex-start;font-weight:400}
+.chk input{width:22px;height:22px;margin-top:2px;accent-color:var(--red);flex:none}
+.status{margin-top:16px;padding:14px 16px;border-radius:10px;display:none;font-size:.96rem}
+.status.ok{display:block;background:#e7f6ee;color:var(--ok);border:1px solid #b6e2c8}
+.status.bad{display:block;background:var(--red-l);color:var(--red-d);border:1px solid #f4b9c3}
+.hp{position:absolute;left:-9999px}
+.spin{width:18px;height:18px;border:3px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:s .7s linear infinite;display:none}
+.btn[disabled] .spin{display:inline-block}
+@keyframes s{to{transform:rotate(360deg)}}
+.filters{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.donor{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.donor .meta{color:var(--mute);font-size:.92rem}
+.pill{background:var(--red-l);color:var(--red-d);font-weight:700;padding:3px 12px;border-radius:999px;margin-right:8px}
+.empty{padding:24px;text-align:center;color:var(--mute);background:#fff;border:1px dashed var(--line);border-radius:var(--r)}
+/* faq */
+details{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px 20px;margin-bottom:10px}
+summary{font-weight:600;cursor:pointer}
+details p{color:var(--mute);margin-top:8px}
+/* footer */
+footer{background:#1d1f24;color:#c9ccd2;padding:48px 0 24px}
+footer a{color:#fff;text-decoration:underline}
+.fgr{display:grid;grid-template-columns:2fr 1fr 1fr;gap:28px;margin-bottom:28px}
+footer h4{color:#fff;margin-bottom:8px}
+footer ul{list-style:none}
+footer small{display:block;border-top:1px solid #33363d;padding-top:16px}
+dialog{border:0;border-radius:18px;padding:28px;width:min(560px,92%);max-height:85vh;overflow:auto}
+dialog::backdrop{background:rgba(0,0,0,.5)}
+dialog h3{margin-bottom:10px}dialog p{color:var(--mute);margin-bottom:10px}dialog button{margin-top:10px}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s}
+.reveal.in{opacity:1;transform:none}
+@media(max-width:900px){
+ .hero .wrap,.g3,.fgr{grid-template-columns:1fr}.g4{grid-template-columns:1fr 1fr}.filters{grid-template-columns:1fr 1fr}
+ .burger{display:block}
+ .menu{position:absolute;top:66px;left:0;right:0;background:#fff;flex-direction:column;padding:16px 4%;gap:14px;border-bottom:1px solid var(--line);display:none;align-items:flex-start}
+ .menu.open{display:flex}
+}
+@media(max-width:560px){.fgrid,.filters,.g4,.stats{grid-template-columns:1fr}section{padding:52px 0}.stats{margin-top:-24px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header>
+<nav class="wrap" aria-label="Main navigation">
+ <a class="logo" href="#home" aria-label="BloodBond Bangladesh home">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2C16 2 5 14 5 20a11 11 0 0022 0C27 14 16 2 16 2z" fill="#d6203a"/><path d="M11 20h10M16 15v10" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>
+  <span>Blood<b>Bond</b> Bangladesh</span>
+ </a>
+ <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+ <ul class="menu" id="menu">
+  <li><a href="#how">How it works</a></li>
+  <li><a href="#urgent">Urgent</a></li>
+  <li><a href="#donors">Find donors</a></li>
+  <li><a href="#faq">FAQ</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a class="btn btn-red" href="#register" style="padding:8px 18px;min-height:40px;color:#fff">Become a Donor</a></li>
+ </ul>
+</nav>
+</header>
+
+<main id="main">
+<!-- HERO -->
+<section class="hero" id="home" style="padding-bottom:84px">
+<div class="wrap">
+ <div>
+  <span class="tag">🇧🇩 Voluntary blood donors · স্বেচ্ছায় রক্তদাতা</span>
+  <h1>Your Blood Can <em>Save a Life</em></h1>
+  <p>রক্তদান করুন, জীবন বাঁচান। BloodBond connects voluntary donors with patients who urgently need blood across all 8 divisions of Bangladesh.</p>
+  <div class="cta">
+   <a class="btn btn-red" href="#register">🩸 Become a Donor</a>
+   <a class="btn btn-out" href="#find">Find Blood</a>
+  </div>
+ </div>
+ <div class="picker" role="group" aria-labelledby="pk">
+  <h3 id="pk">Tap your blood group · আপনার রক্তের গ্রুপ</h3>
+  <p class="lead" style="margin-bottom:16px">See compatible sample donors below.</p>
+  <div class="groups" id="groupChips"></div>
+ </div>
+</div>
+</section>
+
+<!-- STATS -->
+<div class="wrap">
+ <div class="stats reveal">
+  <div class="stat"><b>1,250</b><small>Registered donors · নিবন্ধিত দাতা</small></div>
+  <div class="stat"><b>340</b><small>Blood requests · রক্তের অনুরোধ</small></div>
+  <div class="stat"><b>280</b><small>Successful donations · সফল রক্তদান</small></div>
+ </div>
+ <p class="note"><strong>Sample data:</strong> these numbers are placeholders for design purposes only. They will be replaced with real figures once a database is connected.</p>
+</div>
+
+<!-- HOW -->
+<section id="how">
+<div class="wrap">
+ <h2>How blood donation works <small style="font-weight:400;color:var(--mute)">· কীভাবে কাজ করে</small></h2>
+ <p class="lead">Four simple steps from registration to a life saved.</p>
+ <div class="grid g4">
+  <div class="card reveal"><div class="ic">📝</div><h3>1. Register</h3><p>Sign up as a donor with your blood group and area. নাম ও এলাকা দিয়ে নিবন্ধন করুন।</p></div>
+  <div class="card reveal"><div class="ic">🔍</div><h3>2. Get matched</h3><p>Patients search by blood group and location. Only consenting donors can be contacted.</p></div>
+  <div class="card reveal"><div class="ic">🏥</div><h3>3. Donate safely</h3><p>Meet at a hospital or blood bank where a health check is done first.</p></div>
+  <div class="card reveal"><div class="ic">💚</div><h3>4. Save lives</h3><p>One donation can help up to three patients. আপনার একটি দান তিনজনের প্রাণ বাঁচাতে পারে।</p></div>
+ </div>
+</div>
+</section>
+
+<!-- BLOOD GROUPS -->
+<section class="alt" id="groups">
+<div class="wrap">
+ <h2>Blood groups &amp; who can give to whom</h2>
+ <p class="lead">General guide only. Always confirm compatibility with a doctor or blood bank.</p>
+ <div class="scroll"><table class="compat">
+  <thead><tr><th>Group</th><th>Can donate to</th><th>Can receive from</th></tr></thead>
+  <tbody>
+   <tr><td><b>A+</b></td><td>A+, AB+</td><td>A+, A-, O+, O-</td></tr>
+   <tr><td><b>A-</b></td><td>A+, A-, AB+, AB-</td><td>A-, O-</td></tr>
+   <tr><td><b>B+</b></td><td>B+, AB+</td><td>B+, B-, O+, O-</td></tr>
+   <tr><td><b>B-</b></td><td>B+, B-, AB+, AB-</td><td>B-, O-</td></tr>
+   <tr><td><b>AB+</b></td><td>AB+</td><td>All groups</td></tr>
+   <tr><td><b>AB-</b></td><td>AB+, AB-</td><td>A-, B-, AB-, O-</td></tr>
+   <tr><td><b>O+</b></td><td>A+, B+, AB+, O+</td><td>O+, O-</td></tr>
+   <tr><td><b>O-</b></td><td>All groups</td><td>O-</td></tr>
+  </tbody></table></div>
+</div>
+</section>
+
+<!-- URGENT -->
+<section id="urgent">
+<div class="wrap">
+ <h2>Urgent blood requests <small style="font-weight:400;color:var(--mute)">· জরুরি অনুরোধ</small></h2>
+ <p class="lead">Recent requests from hospitals. Requester phone numbers are never shown publicly.</p>
+ <div class="grid g3" id="urgentList"></div>
+ <p class="note"><strong>Sample content:</strong> these requests are fictional examples. No real patient information is displayed.</p>
+</div>
+</section>
+
+<!-- DONOR SEARCH -->
+<section class="alt" id="donors">
+<div class="wrap">
+ <h2>Search donors <small style="font-weight:400;color:var(--mute)">· দাতা খুঁজুন</small></h2>
+ <p class="lead">Filter by blood group and location. Only donors who agreed to share contact details appear, and phone numbers stay hidden until verification.</p>
+ <div class="filters">
+  <div><label for="fBg">Blood group</label><select id="fBg"><option value="">Any</option></select></div>
+  <div><label for="fDiv">Division</label><select id="fDiv"><option value="">Any</option></select></div>
+  <div><label for="fDist">District</label><select id="fDist"><option value="">Any</option></select></div>
+  <div><label for="fUp">Upazila</label><input type="text" id="fUp" placeholder="e.g. Savar"></div>
+ </div>
+ <div class="grid" id="donorList" aria-live="polite"></div>
+ <p class="note"><strong>Demo:</strong> the list below uses invented sample donors. No real donor database is connected yet. Matching never guarantees availability.</p>
+</div>
+</section>
+
+<!-- REGISTER -->
+<section id="register">
+<div class="wrap" style="max-width:820px">
+ <h2>Become a donor <small style="font-weight:400;color:var(--mute)">· দাতা হিসেবে নিবন্ধন</small></h2>
+ <p class="lead">Takes under two minutes. Your details are only shared with verified blood seekers if you tick consent.</p>
+ <form class="formcard" id="donorForm" novalidate data-type="donor">
+  <div class="fgrid">
+   <div class="full"><label for="dName">Full name · পূর্ণ নাম <i>*</i></label><input type="text" id="dName" name="name" autocomplete="name" required><span class="err"></span></div>
+   <div><label for="dPhone">Phone · মোবাইল <i>*</i></label><input type="tel" id="dPhone" name="phone" autocomplete="tel" inputmode="tel" placeholder="01XXXXXXXXX" required><span class="err"></span></div>
+   <div><label for="dBg">Blood group · রক্তের গ্রুপ <i>*</i></label><select id="dBg" name="bloodGroup" required></select><span class="err"></span></div>
+   <div><label for="dDiv">Division · বিভাগ <i>*</i></label><select id="dDiv" name="division" required></select><span class="err"></span></div>
+   <div><label for="dDist">District · জেলা <i>*</i></label><select id="dDist" name="district" required></select><span class="err"></span></div>
+   <div><label for="dUp">Upazila · উপজেলা <i>*</i></label><input type="text" id="dUp" name="upazila" required><span class="err"></span></div>
+   <div><label for="dLast">Last donation date (optional)</label><input type="date" id="dLast" name="lastDonation"><span class="err"></span></div>
+   <div class="full"><label for="dAvail">Availability · প্রস্তুতি <i>*</i></label>
+    <select id="dAvail" name="availability" required><option value="">Select…</option><option>Available now</option><option>Available in emergencies only</option><option>Not available currently</option></select><span class="err"></span></div>
+   <div class="full"><label class="chk"><input type="checkbox" id="dConsent" name="consent" required><span>I agree to share my contact information with verified blood seekers, and I have read the <a href="#" data-modal="privacy" style="color:var(--red);text-decoration:underline">Privacy Policy</a>. <i>*</i></span></label><span class="err"></span></div>
+   <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+  </div>
+  <button class="btn btn-red" type="submit" style="margin-top:20px"><span class="spin"></span><span class="lbl">Register as donor</span></button>
+  <div class="status" role="status" aria-live="polite"></div>
+ </form>
+</div>
+</section>
+
+<!-- FIND BLOOD -->
+<section class="alt" id="find">
+<div class="wrap" style="max-width:820px">
+ <h2>Find blood · রক্ত খুঁজুন</h2>
+ <p class="lead">Send a request to our volunteer team. We forward it to matching donors who allowed contact.</p>
+ <form class="formcard" id="requestForm" novalidate data-type="request">
+  <div class="fgrid">
+   <div><label for="rBg">Required blood group <i>*</i></label><select id="rBg" name="bloodGroup" required></select><span class="err"></span></div>
+   <div><label for="rDate">Required date <i>*</i></label><input type="date" id="rDate" name="requiredDate" required><span class="err"></span></div>
+   <div><label for="rDiv">Division <i>*</i></label><select id="rDiv" name="division" required></select><span class="err"></span></div>
+   <div><label for="rDist">District <i>*</i></label><select id="rDist" name="district" required></select><span class="err"></span></div>
+   <div><label for="rUp">Upazila <i>*</i></label><input type="text" id="rUp" name="upazila" required><span class="err"></span></div>
+   <div><label for="rHos">Hospital name <i>*</i></label><input type="text" id="rHos" name="hospital" required><span class="err"></span></div>
+   <div class="full"><label for="rPhone">Contact number <i>*</i></label><input type="tel" id="rPhone" name="phone" inputmode="tel" placeholder="01XXXXXXXXX" required><span class="err"></span></div>
+   <div class="full"><label class="chk"><input type="checkbox" id="rEmerg" name="emergency"><span>🚨 This is an emergency request (needed within 24 hours)</span></label></div>
+   <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+  </div>
+  <button class="btn btn-red" type="submit" style="margin-top:20px"><span class="spin"></span><span class="lbl">Send blood request</span></button>
+  <div class="status" role="status" aria-live="polite"></div>
+  <p class="note" style="margin-bottom:0">Matching does not guarantee donor availability. Please also contact your hospital blood bank.</p>
+ </form>
+</div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+<div class="wrap" style="max-width:820px">
+ <h2>Frequently asked questions · সচরাচর প্রশ্ন</h2><br>
+ <details><summary>Who can donate blood?</summary><p>Generally healthy adults aged 18–60, weighing at least 50 kg. A doctor or blood bank makes the final decision.</p></details>
+ <details><summary>How often can I donate? / কতদিন পর পর রক্ত দেওয়া যায়?</summary><p>Men can usually donate every 3–4 months; women every 4 months. Please follow the advice of your blood bank.</p></details>
+ <details><summary>Is my phone number public?</summary><p>No. Your number is never shown on this website. It is only shared with verified blood seekers, and only if you gave consent.</p></details>
+ <details><summary>Does BloodBond guarantee a donor?</summary><p>No. We help connect people, but availability and medical eligibility cannot be guaranteed.</p></details>
+ <details><summary>Do I get paid?</summary><p>No. BloodBond is for voluntary donation only. Never pay anyone for blood.</p></details>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="alt" id="contact">
+<div class="wrap">
+ <h2>Contact us · যোগাযোগ</h2>
+ <p class="lead">Questions, partnerships, or hospital verification? Reach out.</p>
+ <div class="grid g3">
+  <div class="card"><div class="ic">📞</div><h3>Helpline</h3><p id="helpline">Helpline number will be added here.</p></div>
+  <div class="card"><div class="ic">✉️</div><h3>Email</h3><p>hello@your-domain.example</p></div>
+  <div class="card"><div class="ic">📍</div><h3>Coverage</h3><p>All 8 divisions of Bangladesh · সারা বাংলাদেশ</p></div>
+ </div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="wrap">
+ <div class="fgr">
+  <div><h4>BloodBond Bangladesh</h4><p>Donate Blood, Save Lives. A volunteer-driven platform. Not a medical service.</p></div>
+  <div><h4>Explore</h4><ul><li><a href="#register">Become a donor</a></li><li><a href="#find">Find blood</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+  <div><h4>Legal</h4><ul><li><a href="#" data-modal="privacy">Privacy Policy</a></li><li><a href="#" data-modal="terms">Terms of Use</a></li></ul></div>
+ </div>
+ <small>© <span id="yr"></span> BloodBond Bangladesh. In an emergency, go to the nearest hospital.</small>
+</div>
+</footer>
+
+<dialog id="privacy"><h3>Privacy Policy</h3>
+<p>We collect only what is needed to connect donors and blood seekers: name, phone, blood group, location and availability.</p>
+<p>Your details are never published. They are shared with verified blood seekers only if you tick the consent box.</p>
+<p>Submitted forms are delivered to our private volunteer team. You may ask us to delete your data at any time by contacting us.</p>
+<button class="btn btn-red" data-close>Close</button></dialog>
+<dialog id="terms"><h3>Terms of Use</h3>
+<p>BloodBond is a connection service for voluntary donors. We do not guarantee availability, quality, or medical suitability of any donation.</p>
+<p>Buying or selling blood is not allowed. Always verify donors and patients through a hospital or licensed blood bank.</p>
+<p>Provide accurate information. Misuse may result in removal.</p>
+<button class="btn btn-red" data-close>Close</button></dialog>
+
+<script>
+/* ============ CONFIG ============
+   Forms POST to a small server-side proxy so the Telegram bot token is never in this public file.
+   See the Netlify function: netlify/functions/send-telegram.js
+*/
+const CONFIG = {
+  endpoint: "", // empty in this hosted preview: no backend connected
+  helplineNumber: "" // e.g. "+8801XXXXXXXXX" – shows a click-to-call button when set
+};
+
+const BG = ["A+","A-","B+","B-","AB+","AB-","O+","O-"];
+const LOC = {
+ "Dhaka":["Dhaka","Gazipur","Narayanganj","Tangail","Manikganj"],
+ "Chattogram":["Chattogram","Cox's Bazar","Cumilla","Noakhali","Rangamati"],
+ "Rajshahi":["Rajshahi","Bogura","Pabna","Natore","Naogaon"],
+ "Khulna":["Khulna","Jashore","Satkhira","Bagerhat","Kushtia"],
+ "Barishal":["Barishal","Bhola","Patuakhali","Pirojpur","Jhalokati"],
+ "Sylhet":["Sylhet","Moulvibazar","Habiganj","Sunamganj"],
+ "Rangpur":["Rangpur","Dinajpur","Kurigram","Gaibandha","Thakurgaon"],
+ "Mymensingh":["Mymensingh","Jamalpur","Netrokona","Sherpur"]
+};
+const REQUESTS = [
+ {bg:"O-",hos:"Sample Medical College Hospital",loc:"Dhaka, Dhaka",units:2,when:"Today"},
+ {bg:"B+",hos:"Sample General Hospital",loc:"Sylhet, Sylhet",units:1,when:"Tomorrow"},
+ {bg:"A+",hos:"Sample District Hospital",loc:"Rajshahi, Rajshahi",units:3,when:"Within 2 days"}
+];
+const DONORS = [ // fictional sample data – no real people
+ {n:"Sample Donor 1",bg:"O+",div:"Dhaka",dist:"Dhaka",up:"Savar",av:"Available now"},
+ {n:"Sample Donor 2",bg:"A+",div:"Chattogram",dist:"Chattogram",up:"Panchlaish",av:"Emergency only"},
+ {n:"Sample Donor 3",bg:"B+",div:"Sylhet",dist:"Sylhet",up:"Zindabazar",av:"Available now"},
+ {n:"Sample Donor 4",bg:"O-",div:"Rajshahi",dist:"Rajshahi",up:"Boalia",av:"Available now"},
+ {n:"Sample Donor 5",bg:"AB+",div:"Khulna",dist:"Khulna",up:"Sonadanga",av:"Emergency only"},
+ {n:"Sample Donor 6",bg:"A-",div:"Dhaka",dist:"Gazipur",up:"Tongi",av:"Available now"}
+];
+const $ = (s,r=document)=>r.querySelector(s);
+const $$ = (s,r=document)=>[...r.querySelectorAll(s)];
+const esc = s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+/* ---- selects ---- */
+function fill(sel,items,ph){sel.innerHTML=`<option value="">${ph}</option>`+items.map(i=>`<option>${esc(i)}</option>`).join("")}
+function linkLoc(divSel,distSel,ph){
+  divSel.addEventListener("change",()=>fill(distSel,LOC[divSel.value]||[],ph));
+}
+["dBg","rBg","fBg"].forEach(id=>fill($("#"+id),BG,id==="fBg"?"Any":"Select…"));
+["dDiv","rDiv","fDiv"].forEach(id=>fill($("#"+id),Object.keys(LOC),id==="fDiv"?"Any":"Select…"));
+["dDist","rDist","fDist"].forEach(id=>fill($("#"+id),[],id==="fDist"?"Any":"Select division first"));
+linkLoc($("#dDiv"),$("#dDist"),"Select…");linkLoc($("#rDiv"),$("#rDist"),"Select…");linkLoc($("#fDiv"),$("#fDist"),"Any");
+$("#rDate").min=new Date().toISOString().slice(0,10);
+$("#dLast").max=new Date().toISOString().slice(0,10);
+$("#yr").textContent=new Date().getFullYear();
+
+/* ---- hero chips ---- */
+$("#groupChips").innerHTML=BG.map(g=>`<button class="bg" type="button" aria-pressed="false" aria-label="Blood group ${g}"><b>${g}</b></button>`).join("");
+$("#groupChips").addEventListener("click",e=>{
+  const b=e.target.closest(".bg");if(!b)return;
+  const on=b.getAttribute("aria-pressed")==="true";
+  $$(".bg").forEach(x=>x.setAttribute("aria-pressed","false"));
+  b.setAttribute("aria-pressed",String(!on));
+  $("#fBg").value=on?"":b.textContent;renderDonors();
+  $("#donors").scrollIntoView();
+});
+
+/* ---- urgent requests ---- */
+$("#urgentList").innerHTML=REQUESTS.map(r=>`
+ <article class="card req reveal"><div class="big">${r.bg}</div><div>
+  <span class="urgent">Urgent · জরুরি</span>
+  <h3>${esc(r.hos)}</h3><small>${esc(r.loc)} · ${r.units} bag(s) · ${esc(r.when)}</small>
+  <a class="btn btn-out" href="#find">I can help</a></div></article>`).join("");
+
+/* ---- donor search (sample data only) ---- */
+function renderDonors(){
+  const bg=$("#fBg").value,dv=$("#fDiv").value,ds=$("#fDist").value,up=$("#fUp").value.trim().toLowerCase();
+  const list=DONORS.filter(d=>(!bg||d.bg===bg)&&(!dv||d.div===dv)&&(!ds||d.dist===ds)&&(!up||d.up.toLowerCase().includes(up)));
+  $("#donorList").innerHTML=list.length?list.map(d=>`
+   <div class="card donor"><div><span class="pill">${d.bg}</span><b>${esc(d.n)}</b>
+    <div class="meta">${esc(d.up)}, ${esc(d.dist)}, ${esc(d.div)} · ${esc(d.av)}</div></div>
+    <button class="btn btn-out" type="button" style="padding:8px 16px;min-height:40px" data-reveal>Request contact</button></div>`).join("")
+  :`<div class="empty">No donors match these filters yet. Try a wider area, or send a <a href="#find" style="color:var(--red);text-decoration:underline">blood request</a>.</div>`;
+}
+["fBg","fDiv","fDist"].forEach(id=>$("#"+id).addEventListener("change",renderDonors));
+$("#fUp").addEventListener("input",renderDonors);
+$("#donorList").addEventListener("click",e=>{
+  if(e.target.closest("[data-reveal]")){alert("Demo only: in the live site, phone numbers are shared only after the seeker is verified and the donor has consented.")}
+});
+renderDonors();
+
+/* ---- helpline ---- */
+if(CONFIG.helplineNumber){$("#helpline").innerHTML=`<a class="btn btn-red" href="tel:${esc(CONFIG.helplineNumber)}">Call ${esc(CONFIG.helplineNumber)}</a>`}
+
+/* ---- validation + submit ---- */
+const phoneOK=v=>/^(?:\+?88)?01[3-9]\d{8}$/.test(v.replace(/[\s-]/g,""));
+function setErr(el,msg){
+  const box=el.closest("div"),e=box.querySelector(".err");
+  el.classList.toggle("invalid",!!msg);
+  if(e)e.textContent=msg||"";
+  return !msg;
+}
+function validate(form){
+  let ok=true;
+  $$("[required]",form).forEach(el=>{
+    let m="";
+    if(el.type==="checkbox"){if(!el.checked)m="Please tick this box to continue."}
+    else if(!el.value.trim())m="This field is required.";
+    else if(el.type==="tel"&&!phoneOK(el.value))m="Enter a valid Bangladeshi number, e.g. 01712345678.";
+    else if(el.name==="requiredDate"&&el.value<el.min)m="Date cannot be in the past.";
+    if(!setErr(el,m))ok=false;
+  });
+  const last=form.elements.lastDonation;
+  if(last&&last.value&&last.value>last.max){setErr(last,"Date cannot be in the future.");ok=false}
+  return ok;
+}
+function buildText(form){
+  const f=Object.fromEntries(new FormData(form));
+  const now=new Date().toLocaleString("en-GB",{timeZone:"Asia/Dhaka"});
+  if(form.dataset.type==="donor") return `🩸 NEW DONOR REGISTRATION\n\nName: ${f.name}\nPhone: ${f.phone}\nBlood group: ${f.bloodGroup}\nLocation: ${f.upazila}, ${f.district}, ${f.division}\nLast donation: ${f.lastDonation||"—"}\nAvailability: ${f.availability}\nContact sharing consent: ${f.consent?"YES":"NO"}\n\nTime (BDT): ${now}`;
+  return `${f.emergency?"🚨 EMERGENCY ":"🆘 "}BLOOD REQUEST\n\nBlood group: ${f.bloodGroup}\nHospital: ${f.hospital}\nLocation: ${f.upazila}, ${f.district}, ${f.division}\nRequired date: ${f.requiredDate}\nContact: ${f.phone}\nEmergency: ${f.emergency?"YES":"No"}\n\nTime (BDT): ${now}`;
+}
+async function submitForm(e){
+  e.preventDefault();
+  const form=e.currentTarget,btn=$("button[type=submit]",form),st=$(".status",form),lbl=$(".lbl",btn);
+  st.className="status";
+  if(!validate(form)){st.className="status bad";st.textContent="Please fix the highlighted fields and try again.";const bad=$(".invalid",form);bad&&bad.focus();return}
+  if(!CONFIG.endpoint){st.className="status bad";st.textContent="Demo preview: the form is valid, but no backend is connected here, so nothing was sent or saved.";return}
+  const old=lbl.textContent;btn.disabled=true;lbl.textContent="Sending…";
+  try{
+    const ctl=new AbortController(),t=setTimeout(()=>ctl.abort(),15000);
+    const res=await fetch(CONFIG.endpoint,{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({text:buildText(form),website:form.elements.website.value}),signal:ctl.signal});
+    clearTimeout(t);
+    if(!res.ok)throw new Error("HTTP "+res.status);
+    st.className="status ok";
+    st.textContent=form.dataset.type==="donor"
+      ?"Thank you! Your registration was sent to our volunteer team. আপনার তথ্য পাঠানো হয়েছে।"
+      :"Your request was sent to our volunteer team. We cannot guarantee donor availability, so please also contact your hospital blood bank.";
+    form.reset();
+  }catch(err){
+    st.className="status bad";
+    st.textContent=err.name==="AbortError"
+      ?"The request timed out. Check your internet connection and try again."
+      :"We could not send your form. Please check your connection and try again. If this keeps happening, call the helpline.";
+  }finally{btn.disabled=false;lbl.textContent=old}
+}
+$$("form").forEach(f=>{f.addEventListener("submit",submitForm);f.addEventListener("input",e=>{if(e.target.classList.contains("invalid"))setErr(e.target,"")})});
+
+/* ---- nav, modals, reveal ---- */
+const burger=$("#burger"),menu=$("#menu");
+burger.addEventListener("click",()=>{const o=menu.classList.toggle("open");burger.setAttribute("aria-expanded",o)});
+menu.addEventListener("click",e=>{if(e.target.closest("a")){menu.classList.remove("open");burger.setAttribute("aria-expanded","false")}});
+document.addEventListener("click",e=>{
+  const m=e.target.closest("[data-modal]");
+  if(m){e.preventDefault();$("#"+m.dataset.modal).showModal()}
+  if(e.target.closest("[data-close]"))e.target.closest("dialog").close();
+});
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}}),{threshold:.12});
+$$(".reveal").forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
